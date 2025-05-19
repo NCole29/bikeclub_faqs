@@ -21,3 +21,12 @@ config:
         default_time: '01:00:00'
         hide_seconds: true
         log: false
+    user.role.site_admin:
+      createIfNotExists:
+        label: 'Site administrator'
+      grantPermissions:
+        - 'create faqs content'
+        - 'delete any faqs content'
+        - 'edit any faqs content'
+        - 'use text format basic_html'
+        - 'use text format summary_fields'
