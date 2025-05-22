@@ -1,5 +1,5 @@
 name: 'Bikeclub FAQs'
-description: 'Provides FAQs content type.'
+description: 'Provides FAQs content type to display information in a collapsible question-and-answer format.'
 type: 'Content type'
 recipes:
   - bikeclub_content_type_base
