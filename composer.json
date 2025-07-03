@@ -18,9 +18,9 @@
     }		
   },	
   "require": {
-    "bikeclub/bikeclub_content_type_base": ">=1.0",		
-    "drupal/faqfield": ">=7.1",
-    "drupal/scheduler": ">=2.1"
+    "bikeclub/bikeclub_content_type_base": "dev-main",		
+    "drupal/faqfield": "^7.1",
+    "drupal/scheduler": "^2.1"
   },
   "version": "1.0.1"
 }

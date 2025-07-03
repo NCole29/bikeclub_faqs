@@ -2,6 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.faqs.field_contact_form
+    - field.field.node.faqs.field_contact_person
     - field.field.node.faqs.field_faq
     - field.field.node.faqs.field_page_access
     - field.field.node.faqs.field_text_above_faqs
@@ -12,6 +14,7 @@ dependencies:
     - layout_builder
     - layout_discovery
     - user
+    - user_contacts
 third_party_settings:
   layout_builder:
     enabled: true
@@ -94,12 +97,73 @@ third_party_settings:
                 entity: layout_builder.entity
             weight: 4
             additional: {  }
+          f774c44f-87fe-421c-9416-4c9adfe25532:
+            uuid: f774c44f-87fe-421c-9416-4c9adfe25532
+            region: content
+            configuration:
+              id: 'extra_field_block:node:faqs:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 5
+            additional: {  }
+          00815753-932b-4843-b6b6-471fb18ce3ff:
+            uuid: 00815753-932b-4843-b6b6-471fb18ce3ff
+            region: content
+            configuration:
+              id: 'field_block:node:faqs:field_contact_form'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          f3310ae2-216e-493e-9ed9-952442cc6ba6:
+            uuid: f3310ae2-216e-493e-9ed9-952442cc6ba6
+            region: content
+            configuration:
+              id: 'field_block:node:faqs:field_contact_person'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_contact
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
         third_party_settings: {  }
 id: node.faqs.default
 targetEntityType: node
 bundle: faqs
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_contact_form:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_contact_person:
+    type: entity_reference_contact
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_faq:
     type: faqfield_accordion
     label: above
