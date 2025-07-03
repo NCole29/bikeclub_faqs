@@ -19,7 +19,7 @@
   },	
   "require": {
     "bikeclub/bikeclub_content_type_base": "dev-main",		
-    "drupal/faqfield": "^7.1",
+    "drupal/faqfield": "^8.0",
     "drupal/scheduler": "^2.1"
   },
   "version": "1.0.1"
