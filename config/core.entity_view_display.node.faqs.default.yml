@@ -97,16 +97,6 @@ third_party_settings:
                 entity: layout_builder.entity
             weight: 4
             additional: {  }
-          f774c44f-87fe-421c-9416-4c9adfe25532:
-            uuid: f774c44f-87fe-421c-9416-4c9adfe25532
-            region: content
-            configuration:
-              id: 'extra_field_block:node:faqs:content_moderation_control'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 5
-            additional: {  }
           00815753-932b-4843-b6b6-471fb18ce3ff:
             uuid: 00815753-932b-4843-b6b6-471fb18ce3ff
             region: content

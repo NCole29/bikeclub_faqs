@@ -9,10 +9,8 @@ dependencies:
     - field.field.node.faqs.field_text_above_faqs
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
-    - workflows.workflow.editorial
   module:
     - conditional_fields
-    - content_moderation
     - faqfield
     - field_group
     - text
@@ -20,11 +18,11 @@ third_party_settings:
   field_group:
     group_contact_link:
       children:
-        - field_contact_form
         - field_contact_person
+        - field_contact_form
       label: 'Contact link'
       region: content
-      parent_name: ''
+      parent_name: group_text
       weight: 4
       format_type: details
       format_settings:
@@ -33,6 +31,58 @@ third_party_settings:
         id: ''
         label_as_html: false
         open: false
+        description: ''
+        required_fields: true
+    group_faqs:
+      children:
+        - group_text
+        - group_faq_s
+      label: FAQs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
+    group_text:
+      children:
+        - title
+        - field_text_above_faqs
+        - field_text_below_faqs
+        - group_contact_link
+        - field_page_access
+      label: 'Page content'
+      region: hidden
+      parent_name: group_faqs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_faq_s:
+      children:
+        - field_faq
+      label: FAQs
+      region: hidden
+      parent_name: group_faqs
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
         description: ''
         required_fields: true
 id: node.faqs.default
@@ -48,7 +98,7 @@ content:
     third_party_settings: {  }
   field_contact_person:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -95,7 +145,7 @@ content:
             selector: ''
   field_faq:
     type: faqfield_default
-    weight: 3
+    weight: 7
     region: content
     settings:
       answer_widget: text_format
@@ -117,7 +167,7 @@ content:
     third_party_settings: {  }
   field_text_above_faqs:
     type: text_textarea
-    weight: 1
+    weight: 2
     region: content
     settings:
       rows: 2
@@ -125,7 +175,7 @@ content:
     third_party_settings: {  }
   field_text_below_faqs:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 2
@@ -139,14 +189,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 1
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
