@@ -28,4 +28,4 @@ description: 'Provide questions-and-answers in collapsible fields. Additional te
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false
