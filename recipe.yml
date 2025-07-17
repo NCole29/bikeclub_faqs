@@ -4,23 +4,11 @@ type: 'Content type'
 recipes:
   - bikeclub_content_type_base
 install:
-  - layout_builder
-  - layout_discovery
-  - menu_ui
   # Contrib.
   - faqfield
-  - scheduler  
 config:
   strict: false
-  import:
-    scheduler: '*'
   actions:
-    scheduler.settings:
-      simple_config_update:
-        allow_date_only: true
-        default_time: '01:00:00'
-        hide_seconds: true
-        log: false
     user.role.site_admin:
       createIfNotExists:
         label: 'Site administrator'

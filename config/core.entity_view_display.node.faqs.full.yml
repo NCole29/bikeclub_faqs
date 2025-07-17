@@ -1,0 +1,183 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.faqs.field_contact_form
+    - field.field.node.faqs.field_contact_person
+    - field.field.node.faqs.field_faq
+    - field.field.node.faqs.field_page_access
+    - field.field.node.faqs.field_text_above_faqs
+    - field.field.node.faqs.field_text_below_faqs
+    - node.type.faqs
+  module:
+    - faqfield
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          7d5574d0-9ab0-4485-b94b-5fc9aeedd42b:
+            uuid: 7d5574d0-9ab0-4485-b94b-5fc9aeedd42b
+            region: second
+            configuration:
+              id: 'field_block:node:faqs:field_text_above_faqs'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          72b9b234-f291-42b1-8090-8d3ce0cc1a93:
+            uuid: 72b9b234-f291-42b1-8090-8d3ce0cc1a93
+            region: second
+            configuration:
+              id: 'field_block:node:faqs:field_faq'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: faqfield_accordion
+                label: visually_hidden
+                settings:
+                  active: 0
+                  heightStyle: auto
+                  collapsible: false
+                  event: click
+                  animate:
+                    easing: linear
+                    duration: 200
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          a41fe75a-f3df-41d3-8981-f2398eaa4f97:
+            uuid: a41fe75a-f3df-41d3-8981-f2398eaa4f97
+            region: second
+            configuration:
+              id: 'field_block:node:faqs:field_text_below_faqs'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          7079029b-8059-4bdc-8632-922d3f036879:
+            uuid: 7079029b-8059-4bdc-8632-922d3f036879
+            region: first
+            configuration:
+              id: 'field_block:node:faqs:field_contact_form'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          9a5364c3-a694-4861-bb97-d3464ebad24f:
+            uuid: 9a5364c3-a694-4861-bb97-d3464ebad24f
+            region: first
+            configuration:
+              id: 'field_block:node:faqs:field_contact_person'
+              label: Contact
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_contact
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          f67a3050-11d1-40b7-9980-7aab7738205a:
+            uuid: f67a3050-11d1-40b7-9980-7aab7738205a
+            region: content
+            configuration:
+              id: 'extra_field_block:node:faqs:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.faqs.full
+targetEntityType: node
+bundle: faqs
+mode: full
+content:
+  field_contact_form:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_faq:
+    type: faqfield_accordion
+    label: visually_hidden
+    settings:
+      active: 0
+      heightStyle: auto
+      collapsible: false
+      event: click
+      animate:
+        easing: linear
+        duration: 200
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_text_above_faqs:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text_below_faqs:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_contact_person: true
+  field_page_access: true
+  layout_builder__layout: true
