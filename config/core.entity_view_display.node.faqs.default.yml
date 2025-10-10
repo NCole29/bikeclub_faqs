@@ -14,7 +14,6 @@ dependencies:
     - layout_builder
     - text
     - user
-    - user_contactlink
 third_party_settings:
   layout_builder:
     enabled: false
