@@ -10,14 +10,9 @@ dependencies:
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
   module:
+    - bikeclub
     - faqfield
-    - layout_builder
-    - text
     - user
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: node.faqs.default
 targetEntityType: node
 bundle: faqs
@@ -25,51 +20,53 @@ mode: default
 content:
   field_contact_form:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_contact_person:
     type: user_contact_link
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 4
     region: content
   field_faq:
     type: faqfield_accordion
-    label: visually_hidden
+    label: above
     settings:
-      active: 0
+      active: null
       heightStyle: auto
-      collapsible: false
+      collapsible: true
       event: click
       animate:
         easing: linear
         duration: 200
     third_party_settings: {  }
-    weight: 2
+    weight: 101
     region: content
-  field_text_above_faqs:
+  field_faq_text:
     type: text_default
-    label: visually_hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 102
     region: content
-  field_text_below_faqs:
-    type: text_default
-    label: visually_hidden
-    settings: {  }
+  field_page_access:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 103
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 100
     region: content
 hidden:
-  field_page_access: true
+  field_text_above_faqs: true
+  field_text_below_faqs: true

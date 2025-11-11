@@ -18,25 +18,25 @@ third_party_settings:
   field_group:
     group_contact_link:
       children:
-        - field_contact_person
-        - field_contact_form
-      label: 'Contact link'
+        - group_contact
+        - field_page_access
+      label: 'Contact link and access'
       region: content
-      parent_name: group_text
-      weight: 4
-      format_type: details
+      parent_name: group_faqs
+      weight: 7
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        formatter: closed
         description: ''
         required_fields: true
     group_faqs:
       children:
+        - group_contact_link
         - group_text
-        - group_faq_s
       label: FAQs
       region: content
       parent_name: ''
@@ -54,12 +54,11 @@ third_party_settings:
         - title
         - field_text_above_faqs
         - field_text_below_faqs
-        - group_contact_link
-        - field_page_access
+        - field_faq
       label: 'Page content'
       region: hidden
       parent_name: group_faqs
-      weight: 2
+      weight: 5
       format_type: tab
       format_settings:
         classes: ''
@@ -69,21 +68,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-    group_faq_s:
+    group_contact:
       children:
-        - field_faq
-      label: FAQs
-      region: hidden
-      parent_name: group_faqs
+        - field_contact_form
+        - field_contact_person
+      label: 'Contact link'
+      region: content
+      parent_name: group_contact_link
       weight: 3
-      format_type: tab
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        formatter: closed
-        description: ''
+        open: false
+        description: 'Contact forms allow site visitors to send emails to club members without revealing email addresses on the site. After selecting the Personal contact form, enter one or more persons in the Contact field. Other ("sitewide") contact forms are setup with one or more forwarding addresses at <a href="/admin/structure/contact">Structure > Contact forms</a>.'
         required_fields: true
 id: node.faqs.default
 targetEntityType: node
@@ -92,13 +92,13 @@ mode: default
 content:
   field_contact_form:
     type: options_select
-    weight: 7
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact_person:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -127,7 +127,7 @@ content:
             selector: ''
   field_faq:
     type: faqfield_default
-    weight: 7
+    weight: 4
     region: content
     settings:
       answer_widget: text_format
@@ -143,7 +143,7 @@ content:
     third_party_settings: {  }
   field_page_access:
     type: options_select
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -162,6 +162,12 @@ content:
     settings:
       rows: 2
       placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 7
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

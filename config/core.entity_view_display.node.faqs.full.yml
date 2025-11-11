@@ -11,8 +11,9 @@ dependencies:
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
   module:
+    - bikeclub
     - faqfield
-    - layout_builder                    
+    - layout_builder
     - text
     - user
 third_party_settings:
@@ -43,9 +44,9 @@ content:
     type: faqfield_accordion
     label: visually_hidden
     settings:
-      active: 0
-      heightStyle: auto
-      collapsible: false
+      active: null
+      heightStyle: content
+      collapsible: true
       event: click
       animate:
         easing: linear
