@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.faqs.field_text_below_faqs
     - node.type.faqs
   module:
-    - bikeclub
     - faqfield
     - layout_builder
     - text
